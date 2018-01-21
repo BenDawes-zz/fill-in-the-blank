@@ -1,0 +1,62 @@
+@import "Colors";
+@import "ResponsiveClasses";
+
+.question {
+	display: flex;
+	flex-direction: row;
+	padding: 10px;
+	align-items: center;
+}
+
+.question-image-container {
+	flex: auto;
+	text-align: center;
+	.question-image, .question-text {
+		display: inline-block;
+		padding-bottom: 20px;
+		.ifdesktop({
+			width: calc(~"100% - 200px")
+		});
+		.ifmobile({
+			img {
+				width: 100%;
+			}
+			width: 100%;
+		});
+		.ifmobile({
+			.desktop {
+				display: none;
+				pointer-events: none;
+			}
+		});
+		.ifdesktop({
+			.mobile {
+				display: none;
+				pointer-events: none;
+			}
+		});
+	}
+	.question-text {
+		.responsive({
+			font-size: @large-font;
+		});
+	}
+
+}
+
+
+.blank {
+	display: inline-block;
+	min-width: 50pt;
+	border-style: solid;
+	border-color: @darkblue;
+	border-bottom-width: 5px;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	text-align: center;
+}
+
+.blank:empty:before {
+  content: "\200b"; //zero width space character
+}

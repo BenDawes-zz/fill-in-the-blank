@@ -1,0 +1,50 @@
+@import "Colors";
+@import "ResponsiveClasses";
+
+.answer-options-container {
+	display: flex;
+	flex-direction: row;
+	padding: 10px;
+	.answer-option {
+		flex: 1;
+		display: flex;
+		button {
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			min-width: 180px;
+			border-radius: 5px;
+			border-width: 1px;
+			border-color: @gray;
+			border-style: solid;
+			margin-left: 5px;
+			margin-right: 5px;
+			background-color: @white;
+			&:disabled, &[disabled] {
+				background-color: @gray !important;
+				color: @white !important;
+			}
+			p {
+				margin: 0;
+				flex: 1;
+				display: inline-block;
+				padding: 10px;
+			}
+			.responsive({
+				font-size: @medium-font;
+			});
+			.ifmobile({
+				min-width: 240px;
+				border-radius: 15px;
+				padding: 20px;
+			});
+		}
+		&:last-child {
+			justify-content: flex-end;
+		}
+		&.submit-answer button {
+			color: @white;
+			background-color: @darkblue;
+		}
+	}
+}

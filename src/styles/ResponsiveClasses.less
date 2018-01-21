@@ -1,0 +1,27 @@
+@mobile-threshold: 500px;
+
+.responsive(@rules) {
+    @media only screen and (max-device-width: @mobile-threshold) {
+    	@import "MobileConstants";
+        @rules();
+    }
+    @media only screen and (min-device-width: @mobile-threshold) {
+    	@import "DesktopConstants";
+        @rules();
+    }
+}
+
+.ifmobile(@rules) {
+    @media only screen and (max-device-width: @mobile-threshold) {
+    	@import "MobileConstants";
+        @rules();
+    }
+}
+
+.ifdesktop(@rules) {
+    @media only screen and (min-device-width: @mobile-threshold) {
+    	@import "DesktopConstants";
+        @rules();
+    }
+}
+

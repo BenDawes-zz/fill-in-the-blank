@@ -1,0 +1,51 @@
+@import "Colors";
+@import "ResponsiveClasses";
+
+.app-header {
+	display: flex;
+	flex-direction: row;
+	background-color: @white;
+	border-bottom-width: 1px;
+	border-style: solid;
+	border-color: @gray;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	min-height: 60px;
+	align-items: center;
+
+	.responsive({
+		font-size: @small-font;
+	})
+}
+
+.header-title {
+	flex: 0;
+	position: absolute;
+	margin: auto;
+	width: 100%;
+	text-align: center;
+	display: inline-block;
+}
+
+.progress-actions {
+	.responsive({
+		margin-left: auto;
+		display: flex;
+		flex-grow: 0;
+		flex-shrink: 1;
+		flex-basis: auto;
+		white-space: nowrap;
+		margin-top: auto;
+		margin-bottom: auto;
+		margin-left: auto;
+		color: @darkgray;
+		p {
+			padding-left: 10px;
+			margin: auto 0;
+			display: inline-block;
+			font-size: @small-font;
+		}
+
+	})
+}

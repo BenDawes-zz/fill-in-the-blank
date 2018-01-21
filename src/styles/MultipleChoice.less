@@ -1,0 +1,77 @@
+@import "Colors";
+@import "ResponsiveClasses";
+
+.multiple-choice {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	background-color: @darkblue;
+	padding: 10px;
+	.choices {
+		text-align: center;
+		.ifmobile({
+			overflow-x: scroll;
+		});
+		.ifdesktop({
+			flex-wrap: wrap;
+			max-width: calc(~"100% - 400px");
+		});
+
+		flex: 1;
+		.ifdesktop({
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+		});
+		.ifmobile({
+			overflow-x: scroll;
+			white-space: nowrap;
+		});
+		margin: 0 auto;
+		.option {
+			flex-grow: 0;
+			flex-shrink: 1;
+			flex-basis: auto;
+			align-items: center;
+			justify-content: center;
+			.responsive({
+				font-size: @medium-font;
+			});
+			background-color: @gray;
+			border-color: @darkgray;
+			text-align:center;
+
+			display: inline-flex;
+			height: 40px;
+			border-radius: 5px;
+			.ifmobile({
+				height: 150px;
+				border-radius: 20px;
+			});
+
+			margin: 5px;
+			cursor: pointer;
+			&.selected {
+				opacity: 0.2;
+			}
+			&:hover {
+				color: @white;
+				background-color: @darkblue;
+			}
+			p {
+				padding: 0 30px;
+				.ifmobile({
+					min-width: 180px;
+				});
+				.ifdesktop({
+					min-width: 90px;
+				});
+			}
+			&.disabled.unselected {
+				pointer-events: none;
+			}
+		}
+	}
+}
